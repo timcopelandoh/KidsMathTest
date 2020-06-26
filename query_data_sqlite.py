@@ -18,6 +18,8 @@ def report_student(studentid, db='student.db', table='scores'):
     c.execute(sql)
 
     df = pd.DataFrame(c.fetchall())
+    
+    df.rename(columns={0: 'studentid', 1:'metricid', 2:'date', 3:'score'}, inplace=True)
 
     conn.commit()
     conn.close()
@@ -51,6 +53,5 @@ def report_class(teacherid, year=2020, db='student.db', class_table='classes', s
     conn.close()
 
     return df
-
 
 
