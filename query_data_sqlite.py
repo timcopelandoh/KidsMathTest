@@ -1,5 +1,6 @@
 import sqlite3
 import pandas as pd
+import transform_data
 
 def report_student(studentid, db='student.db', table='scores'):
     '''
@@ -21,10 +22,13 @@ def report_student(studentid, db='student.db', table='scores'):
     
     df.rename(columns={0: 'studentid', 1:'metricid', 2:'date', 3:'score'}, inplace=True)
 
+    df['date'] = df['date'].apply(transform_data.modify_date)
+
     conn.commit()
     conn.close()
 
     return df
+
 
 
 def report_class(teacherid, year=2020, db='student.db', class_table='classes', score_table='scores'):

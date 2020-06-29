@@ -2,6 +2,11 @@ import plotly.graph_objects as go
 import plotly.express as px
 from query_data_sqlite import report_student
 
+'''
+Student object fetches and stores data about a specific student.
+'''
+
+
 class Student:
     def __init__(self, studentid):
         self.studentid = studentid

@@ -3,7 +3,9 @@ import names
 import numpy as np
 from add_record import add_student, add_class, add_score
 
-
+'''
+Script that generates sample student data and populates SQLite database
+'''
 
 students = 200
 tests = 5
